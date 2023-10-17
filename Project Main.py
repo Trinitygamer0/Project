@@ -34,7 +34,6 @@ def intro():
         main_menu()
 
 
-
 def main_menu():
     msg = ('''
     *=========================================*
@@ -176,20 +175,20 @@ def data_analysis_menu():
 
 def graphical_menu():
     msg = ('''
-    *================================================*
-    |               Data Analysis Menu               |
-    *================================================*
-    | 1 | Graph of weeks on chart by an artist       |
-    | 2 | Graph of Energy on a track by an artist    |
-    | 3 | Graph of an artist's Acousticness          |
-    | 4 | Graph of peak rank of artists              |
-    | 0 | Go back                                    |
-    *================================================*
+    *========================================================*
+    |               Graphical Data Analysis Menu             |
+    *========================================================*
+    | 1 | Graph of weeks on chart by an artist               |
+    | 2 | Graph of Energy on a track by an artist            |
+    | 3 | Graph of an artist's Acousticness                  |
+    | 4 | Graph of Danceability on a track by an artist      |
+    | 0 | Go back                                            |
+    *========================================================*
     ''')
 
     for i in msg:
         #time.sleep(0.01)
-        print(i,end = "")
+        print(i, end="")
 
     inp = input('''
     Enter the number corresponding to your choice : ''')
@@ -200,7 +199,7 @@ def graphical_menu():
             '''
         for i in msg:
             #time.sleep(0.02)
-            print(i,end = "")
+            print(i, end="")
 
         print('Enter 0 to go back')
 
@@ -215,7 +214,7 @@ def graphical_menu():
         for i in msg:
 
             #time.sleep(0.02)
-            print(i,end = "")
+            print(i, end="")
 
         print('Enter to go back')
 
@@ -233,7 +232,23 @@ def graphical_menu():
 
         print('Enter to go back')
 
-    gm_code3()
+        gm_code3()
+
+    if inp == '4':
+
+        msg = '''
+                        Preparing to plot graph...
+                        '''
+        for i in msg:
+            # time.sleep(0.02)
+            print(i, end="")
+
+        print('Enter to go back')
+
+        gm_code4()
+
+    if inp == '0':
+        main_menu()
 
 
 def dam_code1():
@@ -452,6 +467,37 @@ def gm_code3():
             plt.xticks(rotation=45)
             plt.show()
         gm_code3()
+
+
+def gm_code4():
+
+    df_drop = ['peak_rank', 'acousticness', 'key', 'loudness', 'energy',
+               'mode', 'speechiness', 'instrumentalness',
+               'liveness', 'tempo', 'time_signature', 'duration_ms', 'weeks_on_chart']
+    df1 = df.drop(columns=df_drop)
+
+    inp = input('''
+                Enter name of artist(case sensitive) : ''')
+
+    if inp == '0':
+        graphical_menu()
+    else:
+        op = df1['artist_names'] == inp
+        df2 = df1[op]
+
+        if df2.empty:
+            print('''
+                        Sorry no data available...''')
+        else:
+            plt.figure(figsize=(12, 6))
+            plt.bar(df2['track_name'], df2['danceability'],
+                     color='black', lw=2)
+            plt.title('Energy of a track by an artist')
+            plt.ylabel('Dancaebility')
+            plt.xlabel('Track name')
+            plt.xticks(rotation=45)
+            plt.show()
+        gm_code4()
 
 
 intro()
