@@ -24,7 +24,8 @@ def intro():
     ''')
 
     for i in msg:
-        # time.sleep(0.002)
+
+        time.sleep(0.002)
         print(i, end="")
 
     inp = input("Press ENTER key to continue : ")
@@ -34,6 +35,7 @@ def intro():
 
 
 def main_menu():
+
     msg = ('''
     *=========================================*
     |                Main Menu                |
@@ -46,30 +48,35 @@ def main_menu():
     ''')
 
     for i in msg:
-        # time.sleep(0.001)
+
+        time.sleep(0.001)
         print(i, end="")
 
     inp = input('Enter the number corresponding to your choice : ')
 
     if inp == '1':
+
         msg = ('''
         Loading Data Analysis Menu...
         ''')
 
         for i in msg:
-            # time.sleep(0.02)
+
+            time.sleep(0.02)
             print(i, end='')
 
         data_analysis_menu()
 
     elif inp == '2':
+
         msg = '''
         Loading Graphical Data Analysis Menu.....
         '''
 
         for i in msg:
-            #time.sleep(0.02)
-            print(i,end = "")
+
+            time.sleep(0.02)
+            print(i, end="")
 
         graphical_menu()
 
@@ -78,6 +85,7 @@ def main_menu():
         intro()
 
     elif inp == '0':
+
         msg = '''
         Thank You For Using My Application
 
@@ -85,18 +93,21 @@ def main_menu():
         '''
 
         for i in msg:
+
             time.sleep(0.1)
             print(i, end='')
 
     else:
+
         print('''
         Invalid Choice
         ''')
-        # time.sleep(2)
+        time.sleep(2)
         main_menu()
 
 
 def data_analysis_menu():
+
     msg = ('''
     *======================================*
     |          Data Analysis Menu          |
@@ -110,42 +121,51 @@ def data_analysis_menu():
     ''')
 
     for i in msg:
-        # time.sleep(0.01)
+
+        time.sleep(0.01)
         print(i, end='')
 
     inp = input("Enter the number corresponding to your choice : ")
 
     if inp == '1':
+
         msg = ('''
             Loading sort by artist name.....
             ''')
 
         for i in msg:
-            # time.sleep(0.02)
+
+            time.sleep(0.02)
             print(i, end="")
 
         print('Enter 0 to go back')
+
         dam_code1()
 
     elif inp == '2':
+
         msg = ('''
             Loading sort by track name....
             ''')
 
         for i in msg:
-            # time.sleep(0.01)
+
+            time.sleep(0.01)
             print(i, end="")
 
         print('Enter 0 to go back')
+
         dam_code2()
 
     elif inp == '3':
+
         msg = ('''
                 Loading sort by weeks on chart....
                 ''')
 
         for i in msg:
-            # time.sleep(0.01)
+
+            time.sleep(0.01)
             print(i, end="")
 
         print('Enter 0 to go back')
@@ -153,12 +173,14 @@ def data_analysis_menu():
         dam_code3()
 
     elif inp == '4':
+
         msg = ('''
                 Loading sort by length....
                 ''')
 
         for i in msg:
-            # time.sleep(0.01)
+
+            time.sleep(0.01)
             print(i, end="")
 
         print('Enter 0 to go back')
@@ -166,17 +188,22 @@ def data_analysis_menu():
         dam_code4()
 
     elif inp == '0':
+
         main_menu()
 
     else:
+
         print('''
         Invalid Choice
         ''')
+
         time.sleep(2)
+
         data_analysis_menu()
 
 
 def graphical_menu():
+
     msg = ('''
     *========================================================*
     |               Graphical Data Analysis Menu             |
@@ -190,18 +217,22 @@ def graphical_menu():
     ''')
 
     for i in msg:
-        #time.sleep(0.01)
+
+        time.sleep(0.01)
         print(i, end="")
 
     inp = input('''
     Enter the number corresponding to your choice : ''')
 
     if inp == '1':
+
         msg = '''
             Preparing to plot graph...
             '''
+
         for i in msg:
-            #time.sleep(0.02)
+
+            time.sleep(0.02)
             print(i, end="")
 
         print('Enter 0 to go back')
@@ -216,7 +247,7 @@ def graphical_menu():
 
         for i in msg:
 
-            #time.sleep(0.02)
+            time.sleep(0.02)
             print(i, end="")
 
         print('Enter to go back')
@@ -226,11 +257,12 @@ def graphical_menu():
     if inp == '3':
 
         msg = '''
-                Preparing to plot graph...
-                '''
+            Preparing to plot graph...
+            '''
+
         for i in msg:
 
-            # time.sleep(0.02)
+            time.sleep(0.02)
             print(i, end="")
 
         print('Enter to go back')
@@ -240,10 +272,12 @@ def graphical_menu():
     if inp == '4':
 
         msg = '''
-                        Preparing to plot graph...
-                        '''
+            Preparing to plot graph...
+            '''
+
         for i in msg:
-            # time.sleep(0.02)
+
+            time.sleep(0.02)
             print(i, end="")
 
         print('Enter to go back')
@@ -251,10 +285,12 @@ def graphical_menu():
         gm_code4()
 
     if inp == '0':
+
         main_menu()
 
 
 def dam_code1():
+
     df_drop = ['danceability', 'energy', 'key', 'loudness', 'mode',
                'speechiness', 'acousticness', 'tempo', 'time_signature',
                'instrumentalness', 'liveness', 'duration_ms']
@@ -265,18 +301,22 @@ def dam_code1():
     Enter artist name to sort by(case sensitive) - ''')
 
     if inp1 == '0':
+
         data_analysis_menu()
 
     else:
+
         op = df1['artist_names'] == inp1
         df2 = df1[op]
 
         if df2.empty:
+
             print('''
             Sorry No data available
             ''')
 
         else:
+
             print(df2)
 
         dam_code1()
@@ -293,19 +333,24 @@ def dam_code2():
     Enter track name to sort by - ''')
 
     if inp1 == '0':
+
         data_analysis_menu()
 
     else:
+
         op = df1['track_name'] == inp1
         df2 = df1[op]
 
         if df2.empty:
+
             print('''
             Sorry No data available
             ''')
+
             time.sleep(2)
 
         else:
+
             print(df2)
 
         dam_code2()
@@ -324,19 +369,24 @@ def dam_code3():
     inp1 = int(inp)
 
     if inp1 == '0':
+
         data_analysis_menu()
 
     else:
+
         op = df1['weeks_on_chart'] == inp1
         df2 = df1[op]
 
         if df2.empty:
+
             print('''
             Sorry No data available
             ''')
+
             time.sleep(2)
 
         else:
+
             print(df2)
 
         dam_code3()
@@ -359,18 +409,22 @@ def dam_code4():
     inp1 = float(inp)
 
     if inp1 == 0:
+
         data_analysis_menu()
 
     else:
+
         op = df1['length'] == inp1
         df2 = df1[op]
 
         if df2.empty:
+
             print('''
             Sorry No data available
             ''')
 
         else:
+
             print(df2)
 
         dam_code4()
@@ -380,23 +434,29 @@ def gm_code1():
     df_drop = ['peak_rank', 'danceability', 'energy',
                'key', 'loudness', 'mode', 'speechiness', 'acousticness', 'instrumentalness',
                'liveness', 'tempo', 'time_signature', 'duration_ms']
+
     df1 = df.drop(columns=df_drop)
 
     inp = input('''
     Enter name of artist(case sensitive) : ''')
 
     if inp == '0':
+
         graphical_menu()
+
     else:
+
         op = df1['artist_names'] == inp
         df2 = df1[op]
 
         if df2.empty:
+
             print('''
             Sorry no data available...''')
+
         else:
+
             plt.figure(figsize=(12, 6))
-            #plt.set_facecolor('lightgray')
             plt.plot(df2['track_name'], df2['weeks_on_chart'],
                      color='red', lw=2, marker='*',
                      markerfacecolor='black', markeredgecolor = 'black')
@@ -405,6 +465,7 @@ def gm_code1():
             plt.xlabel('Track name')
             plt.xticks(rotation=45)
             plt.show()
+
         gm_code1()
 
 
@@ -412,21 +473,28 @@ def gm_code2():
     df_drop = ['peak_rank', 'danceability', 'key', 'loudness',
                'mode', 'speechiness', 'acousticness', 'instrumentalness',
                'liveness', 'tempo', 'time_signature', 'duration_ms', 'weeks_on_chart']
+
     df1 = df.drop(columns=df_drop)
 
     inp = input('''
         Enter name of artist(case sensitive) : ''')
 
     if inp == '0':
+
         graphical_menu()
+
     else:
+
         op = df1['artist_names'] == inp
         df2 = df1[op]
 
         if df2.empty:
+
             print('''
                 Sorry no data available...''')
+
         else:
+
             plt.figure(figsize=(12, 6))
             # plt.set_facecolor('lightgray')
             plt.plot(df2['track_name'], df2['energy'],
@@ -437,6 +505,7 @@ def gm_code2():
             plt.xlabel('Track name')
             plt.xticks(rotation=45)
             plt.show()
+
         gm_code2()
 
 
@@ -444,21 +513,28 @@ def gm_code3():
     df_drop = ['peak_rank', 'danceability', 'key', 'loudness', 'energy',
                'mode', 'speechiness', 'instrumentalness',
                'liveness', 'tempo', 'time_signature', 'duration_ms', 'weeks_on_chart']
+
     df1 = df.drop(columns=df_drop)
 
     inp = input('''
             Enter name of artist(case sensitive) : ''')
 
     if inp == '0':
+
         graphical_menu()
+
     else:
+
         op = df1['artist_names'] == inp
         df2 = df1[op]
 
         if df2.empty:
+
             print('''
                     Sorry no data available...''')
+
         else:
+
             plt.figure(figsize=(12, 6))
             # plt.set_facecolor('lightgray')
             plt.plot(df2['track_name'], df2['acousticness'],
@@ -469,6 +545,7 @@ def gm_code3():
             plt.xlabel('Track name')
             plt.xticks(rotation=45)
             plt.show()
+
         gm_code3()
 
 
@@ -477,21 +554,28 @@ def gm_code4():
     df_drop = ['peak_rank', 'acousticness', 'key', 'loudness', 'energy',
                'mode', 'speechiness', 'instrumentalness',
                'liveness', 'tempo', 'time_signature', 'duration_ms', 'weeks_on_chart']
+
     df1 = df.drop(columns=df_drop)
 
     inp = input('''
                 Enter name of artist(case sensitive) : ''')
 
     if inp == '0':
+
         graphical_menu()
+
     else:
+
         op = df1['artist_names'] == inp
         df2 = df1[op]
 
         if df2.empty:
+
             print('''
                         Sorry no data available...''')
+
         else:
+
             plt.figure(figsize=(12, 6))
             plt.bar(df2['track_name'], df2['danceability'],
                      color='black', lw=2)
@@ -500,6 +584,7 @@ def gm_code4():
             plt.xlabel('Track name')
             plt.xticks(rotation=45)
             plt.show()
+
         gm_code4()
 
 
