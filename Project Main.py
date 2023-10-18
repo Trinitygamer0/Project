@@ -2,7 +2,6 @@ import pandas as pd
 import time
 import matplotlib.pyplot as plt
 import keyboard
-import os
 
 
 data = pd.read_csv('spotify_top_charts_22.csv')
@@ -73,6 +72,10 @@ def main_menu():
             print(i,end = "")
 
         graphical_menu()
+
+    elif inp == '3':
+
+        intro()
 
     elif inp == '0':
         msg = '''
