@@ -25,10 +25,10 @@ def intro():
 
     for i in msg:
 
-        time.sleep(0.002)
+        time.sleep(0.001)
         print(i, end="")
 
-    inp = input("Press ENTER key to continue : ")
+    input("Press ENTER key to continue : ")
 
     if keyboard.KEY_DOWN:
         main_menu()
@@ -116,13 +116,13 @@ def data_analysis_menu():
     | 2 | Search by track name             |
     | 3 | Sort by weeks on chart           |
     | 4 | Sort by length                   |
+    | 5 | Add a Record
     | 0 | Go back                          |
     *======================================*
     ''')
 
     for i in msg:
 
-        time.sleep(0.01)
         print(i, end='')
 
     inp = input("Enter the number corresponding to your choice : ")
@@ -218,7 +218,6 @@ def graphical_menu():
 
     for i in msg:
 
-        time.sleep(0.01)
         print(i, end="")
 
     inp = input('''
@@ -402,8 +401,6 @@ def dam_code4():
     df1 = df1.drop(columns='duration_ms')
     df1 = round(df1, 1)
 
-    print('''Enter 0 to go back''')
-
     inp = input('''
         Enter length in minutes(e.g- 3.5) - ''')
     inp1 = float(inp)
@@ -459,7 +456,7 @@ def gm_code1():
             plt.figure(figsize=(12, 6))
             plt.plot(df2['track_name'], df2['weeks_on_chart'],
                      color='red', lw=2, marker='*',
-                     markerfacecolor='black', markeredgecolor = 'black')
+                     markerfacecolor='black', markeredgecolor='black')
             plt.title('Weeks On Chart per Song')
             plt.ylabel('Weeks on chart')
             plt.xlabel('Track name')
@@ -537,12 +534,11 @@ def gm_code3():
 
             plt.figure(figsize=(12, 6))
             # plt.set_facecolor('lightgray')
-            plt.plot(df2['track_name'], df2['acousticness'],
-                     color='red', lw=2, marker='*',
-                     markerfacecolor='black', markeredgecolor='black')
-            plt.title('Energy of a track by an artist')
-            plt.ylabel('Acousticness')
-            plt.xlabel('Track name')
+            plt.barh(df2['track_name'], df2['acousticness'],
+                     color='red', lw=2)
+            plt.title('Acousticness of a track by an artist')
+            plt.ylabel('Track Name')
+            plt.xlabel('Acousticness')
             plt.xticks(rotation=45)
             plt.show()
 
@@ -578,8 +574,8 @@ def gm_code4():
 
             plt.figure(figsize=(12, 6))
             plt.bar(df2['track_name'], df2['danceability'],
-                     color='black', lw=2)
-            plt.title('Energy of a track by an artist')
+                    color='red', lw=2)
+            plt.title('Danceability of a track by an artist')
             plt.ylabel('Dancaebility')
             plt.xlabel('Track name')
             plt.xticks(rotation=45)
